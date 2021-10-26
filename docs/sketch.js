@@ -8,9 +8,9 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(640, 120);
+    createCanvas(720, 160);
     video = createCapture(VIDEO);
-    video.size(width, height * 4);
+    video.size(width, height * 3.4);
 
     // Create a new poseNet method with a single detection
     poseNet = ml5.poseNet(video);
@@ -34,8 +34,8 @@ function modelReady() {
 
 function draw() {
     background(255, 0);
-    image(video, 0, -160, width, height * 4);
-    strokeWeight(2);
+    image(video, 0, -160, 720, height * 3.4);
+    strokeWeight(0);
 
     // For one pose only (use a for loop for multiple poses!)
     if (poses.length > 0) {
@@ -51,9 +51,9 @@ function draw() {
         var d2 = leftEye.x + rightEye.x
             //console.log(d)
 
-        image(img, rightEye.x - d / 2, rightEye.y - 170, 2 * d + 16, d / 2 + 12);
+        image(img, rightEye.x - d / 1.6, rightEye.y - 170, 2.3 * d + 16, d * 0.65 + 12);
         if (400 < d2 < 600) {
-            select('#bg').position(-100 + windowWidth / 1.6 - d2 / 3.5, -windowHeight / 10 - leftEye.y / 6);
+            select('#bg').position(-100 + windowWidth / 1.6 - d2 / 4, -windowHeight / 10 - leftEye.y / 6);
         } else if (400 < d2 < 780) {
             select('#bg').position(-100 + windowWidth / 1.6 - d2 / 80, -windowHeight / 10 - leftEye.y / 6);
         } else if (d2 < 400) { select('#bg').position(-100 + windowWidth / 1.6 - 5, -windowHeight / 10 - leftEye.y / 6); }
