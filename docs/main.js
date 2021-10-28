@@ -201,8 +201,8 @@ function init() {
                     songn2.style.animationDuration = "10s";
                 } else if (songnumber == 5) {
                     song = document.getElementById("au5");
-                    songn1.textContent = " ";
-                    songn2.textContent = "・SuperNapkin”There'sNothingThatCannotBeatMe” 2020・";
+                    songn1.textContent = "・SuperNapkin”There'sNothingThatCannotBeatMe” 2020・";
+                    songn2.textContent = "    ";
                     songn3.textContent = "     ";
                     songn2.style.animationDuration = "8s";
                 } else if (songnumber == 6) {
