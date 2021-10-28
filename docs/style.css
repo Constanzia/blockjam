@@ -828,15 +828,18 @@ h3 {
         font-size: 3.2vh;
         top: 15%;
         color: #F4F3E9;
+                width: fit-content;
     }
     #song2 {
         display: none;
+                width: fit-content;
         font-size: 3.2vh;
         color: #4A4A4A;
     }
     #song3 {
         display: none;
         font-size: 3.2vh;
+                width: fit-content;
         color: #4A4A4A;
     }
     .cirbtn {
