@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 
+
 </head>
 
 <body>
@@ -24,14 +25,16 @@
     <div class='move bg3'>3</div>
     <div class='move bg4'>4</div>
  -->
+    <div id=premodel>loading...</div>
 
-
-
-    <div class=bg><video src="road.mp4" id=bg autoplay muted controls loop></div>
+    <div class=bg><video src="road.mp4" id=bg autoplay muted controls loop preload="auto" type="video/mp4"></div>
     <p id='status'>Loading model...</p>
     <div class="marquee">
-        <div class=box id=sound>
-            <div style="height:8px ;display: block;"></div><img src="sound.svg" width=20px></div>
+        <a href="https://www.facebook.com/blockstudiotw/" target="blank">
+        <button class=mybtn id=fb>f
+            <div style="height:8px ;display: none;"></div>
+            <!-- <img src="sound.svg" width=20px> -->
+        </button></a>
         <div class="track1">
             <div class="content">
                 <h3>&nbsp BLOCK &nbspJAM &nbsp♫&nbsp BLOCK &nbspJAM &nbsp♫&nbsp BLOCK &nbspJAM &nbsp♫&nbsp BLOCK &nbspJAM &nbsp♫&nbsp BLOCK &nbspJAM &nbsp♫&nbsp BLOCK &nbspJAM &nbsp♫&nbsp BLOCK &nbspJAM &nbsp♫&nbsp BLOCK &nbspJAM &nbsp♫&nbsp BLOCK &nbspJAM
@@ -52,24 +55,58 @@
             <div style="height:16px ;display: block;"></div><img src="BS-logo.svg" width="48px"></div>
     </a>
     <div class=box id=mirror>
+       &nbsp;  camera loading...
         <!-- <canvas id="mirrorcanvas" width="640" height="480"></canvas> -->
     </div>
     <div class=mirrorbar></div>
     <div class='box' id=player>
         <div class=boxhead>NOW PLAYING</div>
         <img src="cassette.svg" id=cassette>
-        <span id=song>・The Strokes”Reptilia” 2003・The Strokes”Reptilia” 2003</span>
-        <button class=mybtn id=playerbtn style="margin-left: 0px;"><img src="icon1.svg" width="30px"></button>
-        <button class=mybtn id=playerbtn><img src="icon2.svg" width="30px"></button>
-        <button class=mybtn id=playerbtn ><img src="icon3.svg" width="30px"></button>
-        <button class=mybtn id=playerbtn ><img src="icon4.svg" width="30px"></button>
+        <div id=songbox><div class=song id=song1>・・</div><div class=song id=song2>・・</div><div class=song id=song3>・・</div></div>
+        <audio id=au1 loop>
+            <source src="The Garden - California Here We Go.mp3" type="audio/mp3" loop>
+          </audio>
+          <audio id=au2 loop>
+            <source src="PVRIS - Mirrors.mp3" type="audio/mp3" loop>
+          </audio>
+          <audio id=au3 loop>
+            <source src="Red Hot Chili Peppers - Scar Tissue.mp3" type="audio/mp3" loop>
+          </audio>
+          <audio id=au4 loop>
+            <source src="The Killers - Mr. Brightside.mp3" type="audio/mp3" loop>
+          </audio>
+          <audio id=au5 loop>
+            <source src="There's Nothing That Cannot Beat Me.mp3" type="audio/mp3" loop>
+          </audio>
+          <audio id=au6 loop>
+            <source src="Shadow Of Midnight.mp3" type="audio/mp3" loop>
+          </audio>
+        <button class="mybtn playerbtn" id=playerbtn1 style="margin-left: 0px;"><img src="icon1.svg" width="30px"></button>
+        <button class="mybtn playerbtn" id=playerbtn2><img src="icon2.svg" width="30px"></button>
+        <button class="mybtn playerbtn" id=playerbtn3 ><img src="icon3.svg" width="30px"></button>
+        <button class="mybtn playerbtn" id=playerbtn4 ><img src="icon4.svg" width="30px"></button>
         <button class=cirbtn id=cir1>?</button>
         <button class=cirbtn id=cir2>+</button>
-        <button class=cirbtn id=cir3></button>
+       <a href="https://open.spotify.com/playlist/1tt22wkCC9ASAG6JZUdv4R?si=b4bbeb93d0224ee5" target="blank"><button class=cirbtn id=cir3>♪</button></a> 
+    </div>
+    <div class=box id=vertical>
+        <div class=audiobar id=ab1></div>
+        <div class=audiobar id=ab2></div>
+        <div class=audiobar id=ab3></div>
+        <div class=audiobar id=ab4></div>
+        <div class=audiobar id=ab5></div>
+        <div class=audiobar id=ab6></div>
+        <div class=audiobar id=ab7></div>
+        <div class=audiobar id=ab8></div>
+        <div class=audiobar id=ab9></div>
+        <div class=audiobar id=ab10></div>
+        <div class=audiobar id=ab11></div>
+        <div class=time id=time></div>
+        <!-- <div class=audiobar id=ab12></div> -->
     </div>
     
     <div class=box id=camera></div>
-
+  
     <div class=blackpart>
     </div>
     <img src=carcon.svg id=carcon>
@@ -94,25 +131,35 @@
 
     <img src="wheel2.svg" id="wheel">
     <img src="cursor.svg" id="cursor">
+  
     <video id="video" width="640" height="480" autoplay style="display: none"></video>
+        <script>
+            const loading = document.getElementById("premodel");
+            var currentValue = 0;
+            var nextValue = 100 / 2;
+
+            var diff = nextValue - currentValue;
+            var step = (0 < diff ? 1 : -1);
+
+            for (var i = 0; i < Math.abs(diff); ++i) {
+                setTimeout(function() {
+                    currentValue += step * 2
+                    loading.textContent = "loading" + currentValue + "%" + "...";
+                }, 20 * i)
+            }
+        </script>
 
         <script src="sketch.js" version=1.85></script>
-        <div class=time>15:04 &nbsp&nbsp 10.19 &nbsp&nbsp 2021&nbsp</div>
-
-
-
-
-
-
 
 
         <script src="main.js" version=1.85></script>
-        <script>
+
+        <!-- <script>
             const cursor = document.getElementById("cursor");
             document.addEventListener('mousemove', e => {
                 cursor.setAttribute("style", "top:" + (e.pageY + 4) + "px; left:" + (e.pageX + 4) + "px")
             })
-        </script>
+        </script> -->
         <!-- <script>
         const info = document.getElementById("info");
         const infobtn = document.getElementById("infobtn");
